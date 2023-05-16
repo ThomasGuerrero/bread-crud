@@ -1,7 +1,7 @@
 const React = require('react')
 const Default = require('./layouts/default')
 
-function bakerShow ({ baker }) {
+function Show ({ baker }) {
     const breadDisplay = baker.breads.map(bread => {
         return (
             <li key={bread.id}>{bread.name}</li>
@@ -16,8 +16,11 @@ function bakerShow ({ baker }) {
           <ul>
             {breadDisplay}
           </ul>
+          <form action={`/baker/${baker.id}?_method=DELETE`} method='POST'>
+                <input type='submit' value='DELETE' />
+            </form>
       </Default>
     )
 }
 
-module.exports = bakerShow
+module.exports = Show
